@@ -10,12 +10,12 @@ import static org.hamcrest.core.Is.is;
 @RunWith(Parameterized.class)
 public class QuestionsAndAnswersTest extends BaseTest {
 
-    private static By question;
-    private static By answer;
-    private static String answerText;
+    private By question;
+    private By answer;
+    private String answerText;
 
     //конструктор класса
-    public QuestionsAndAnswersTest(By question, By answer, String answerText) {
+    private QuestionsAndAnswersTest(By question, By answer, String answerText) {
         this.question = question;
         this.answer = answer;
         this.answerText = answerText;
@@ -42,11 +42,11 @@ public class QuestionsAndAnswersTest extends BaseTest {
     public void getAnswerTextTest() {
         MainPage objMainPage = new MainPage(driver);
         objMainPage.clickCookieButton();
-        objMainPage.scrollToElement();
+        objMainPage.scrollToElementImportantQuestions();
         objMainPage.clickQuestion(question);
         objMainPage.getAnswerText(answer);
         MatcherAssert.assertThat(objMainPage.getAnswerText(answer), is(answerText));
-        System.out.println("Текст ответа: " + answerText);
+
 
     }
 }

@@ -3,22 +3,23 @@ import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import java.util.concurrent.TimeUnit;
 
-public class BaseTest {
-
-    public WebDriver driver;
+abstract class BaseTest {
+    private static final String URL = "https://qa-scooter.praktikum-services.ru/";
+    protected WebDriver driver;
 
     @Before
     public void setUP(){
         WebDriverManager.chromedriver().setup();
         WebDriverManager.firefoxdriver().setup();
 
+
+
         driver = new ChromeDriver();
         //для запуска через firefox
         //driver = new FirefoxDriver();
-        driver.get("https://qa-scooter.praktikum-services.ru/");
+        driver.get(URL);
         //делаем страницу под размер экрана
         driver.manage().window().maximize();
         //ожидаем загрузку страницы
